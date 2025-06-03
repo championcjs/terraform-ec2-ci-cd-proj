@@ -40,8 +40,10 @@ jobs:
 
       - name: Install TFSec
         run: |
-          brew install tfsec
-          tfsec --version
+          curl -L "https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64" -o tfsec
+          chmod +x tfsec
+          chmod +x tfsec
+          tfesec --version
 
       - name: Run TFSec
         run: tfsec
