@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  terraform-checks:
+  tflint-checks:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,13 +37,17 @@ jobs:
 
       - name: Run TFLint
         run: tflint
+    
+  tfsec-checks:
+    runs-on: ubuntu-latest
+    needs: tflint-checks
 
-      - name: Install TFSec
-        run: |
-          curl -L "https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64" -o tfsec
-          chmod +x tfsec
-          chmod +x tfsec
-          tfsec --version
+    steps:
+    # Checkout repository
+    - name : Check out Git Repository
+      uses: actions/checkout@v2
 
-      - name: Run TFSec
-        run: tfsec
+    #Run Tfsec security scanner
+    - name: Run Tfsec
+      uses: aquasecurity/tfsec-action@v1.0.0
+
