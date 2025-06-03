@@ -36,7 +36,7 @@ jobs:
           tflint --version
 
       - name: Run TFLint
-        run: tflint .
+        run: tflint
 
       - name: Install TFSec
         run: |
@@ -44,4 +44,4 @@ jobs:
           tfsec --version
 
       - name: Run TFSec
-        run: tfsec .
+        run: tfsec
