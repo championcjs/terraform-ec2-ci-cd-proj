@@ -40,7 +40,7 @@ jobs:
 
       - name: Install TFSec
         run: |
-          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/main/scripts/install_linux.sh | bash
+          brew install tfsec
           tfsec --version
 
       - name: Run TFSec
