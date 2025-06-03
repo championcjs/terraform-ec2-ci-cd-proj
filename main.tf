@@ -1,12 +1,10 @@
-provider "aws" {
-  region = var.aws_region
-}
+terraform {
+  required_version = ">= 1.3.0"
 
-resource "aws_instance" "web" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
-
-  tags = {
-    Name = "Terraform-EC2-Instance"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
   }
 }
