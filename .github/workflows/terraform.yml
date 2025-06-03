@@ -43,7 +43,7 @@ jobs:
           curl -L "https://github.com/aquasecurity/tfsec/releases/latest/download/tfsec-linux-amd64" -o tfsec
           chmod +x tfsec
           chmod +x tfsec
-          tfesec --version
+          tfsec --version
 
       - name: Run TFSec
         run: tfsec
